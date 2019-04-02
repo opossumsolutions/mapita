@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Theme Made By www.w3schools.com -->
+    <title>Pumapita</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <style>
+      body {
+        font: 400 15px Lato, sans-serif;
+        line-height: 1.8;
+        color: #818181;
+      }
+      h2 {
+        font-size: 24px;
+        text-transform: uppercase;
+        color: #303030;
+        font-weight: 600;
+        margin-bottom: 30px;
+      }
+      h4 {
+        font-size: 19px;
+        line-height: 1.375em;
+        color: #303030;
+        font-weight: 400;
+        margin-bottom: 30px;
+      }
+      .jumbotron {
+        background-color: #455a64;
+        color: #fff;
+        padding: 100px 25px;
+        font-family: Montserrat, sans-serif;
+      }
+      .container-fluid {
+        padding: 60px 50px;
+      }
+      .bg-grey {
+        background-color: #f6f6f6;
+      }
+      .logo-small {
+        color: #455a64;
+        font-size: 50px;
+      }
+      .logo {
+        color: #455a64;
+        font-size: 200px;
+      }
+      .thumbnail {
+        padding: 0 0 15px 0;
+        border: none;
+        border-radius: 0;
+      }
+      .thumbnail img {
+        width: 100%;
+        height: 100%;
+        margin-bottom: 10px;
+      }
+      .carousel-control.right,
+      .carousel-control.left {
+        background-image: none;
+        color: #455a64;
+      }
+      .carousel-indicators li {
+        border-color: #455a64;
+      }
+      .carousel-indicators li.active {
+        background-color: #455a64;
+      }
+      .item h4 {
+        font-size: 19px;
+        line-height: 1.375em;
+        font-weight: 400;
+        font-style: italic;
+        margin: 70px 0;
+      }
+      .item span {
+        font-style: normal;
+      }
+      .panel {
+        border: 1px solid #455a64;
+        border-radius: 0 !important;
+        transition: box-shadow 0.5s;
+      }
+      .panel:hover {
+        box-shadow: 5px 0px 40px rgba(0, 0, 0, 0.2);
+      }
+      .panel-footer .btn:hover {
+        border: 1px solid #455a64;
+        background-color: #fff !important;
+        color: #455a64;
+      }
+      .panel-heading {
+        color: #fff !important;
+        background-color: #455a64 !important;
+        padding: 25px;
+        border-bottom: 1px solid transparent;
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+      }
+      .panel-footer {
+        background-color: white !important;
+      }
+      .panel-footer h3 {
+        font-size: 32px;
+      }
+      .panel-footer h4 {
+        color: #aaa;
+        font-size: 14px;
+      }
+      .panel-footer .btn {
+        margin: 15px 0;
+        background-color: #455a64;
+        color: #fff;
+      }
+      .navbar {
+        margin-bottom: 0;
+        background-color: #455a64;
+        z-index: 9999;
+        border: 0;
+        font-size: 12px !important;
+        line-height: 1.42857143 !important;
+        letter-spacing: 4px;
+        border-radius: 0;
+        font-family: Montserrat, sans-serif;
+      }
+      .navbar li a,
+      .navbar .navbar-brand {
+        color: #fff !important;
+      }
+      .navbar-nav li a:hover,
+      .navbar-nav li.active a {
+        color: #455a64 !important;
+        background-color: #fff !important;
+      }
+      .navbar-default .navbar-toggle {
+        border-color: transparent;
+        color: #fff !important;
+      }
+      footer .glyphicon {
+        font-size: 20px;
+        margin-bottom: 20px;
+        color: #455a64;
+      }
+      .slideanim {
+        visibility: hidden;
+      }
+      .slide {
+        animation-name: slide;
+        -webkit-animation-name: slide;
+        animation-duration: 1s;
+        -webkit-animation-duration: 1s;
+        visibility: visible;
+      }
+      @keyframes slide {
+        0% {
+          opacity: 0;
+          transform: translateY(70%);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0%);
+        }
+      }
+      @-webkit-keyframes slide {
+        0% {
+          opacity: 0;
+          -webkit-transform: translateY(70%);
+        }
+        100% {
+          opacity: 1;
+          -webkit-transform: translateY(0%);
+        }
+      }
+      @media screen and (max-width: 768px) {
+        .col-sm-4 {
+          text-align: center;
+          margin: 25px 0;
+        }
+        .btn-lg {
+          width: 100%;
+          margin-bottom: 35px;
+        }
+      }
+      @media screen and (max-width: 480px) {
+        .logo {
+          font-size: 150px;
+        }
+      }
+    </style>
+  </head>
+  <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button
+            type="button"
+            class="navbar-toggle"
+            data-toggle="collapse"
+            data-target="#myNavbar"
+          >
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <img src="src/assets/OpossumLogo.png" alt="logo" height="50" />
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#about">PUMAPITA</a></li>
+            <li><a href="#services">OPOSSUM SOLUTIONS</a></li>
+            <li><a href="login.html">ENTRAR</a></li>
+            <li><a href="#pricing">REGISTRARSE</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="jumbotron text-center">
+      <h1>PUMAPITA</h1>
+      <p>Los temas que quieres y donde quieres a un sólo click</p>
+      <form>
+        <div class="input-group">
+          <input
+            type="email"
+            class="form-control"
+            size="50"
+            placeholder="Sitios de Interés"
+            required
+          />
+          <div class="input-group-btn">
+            <button type="button" class="btn btn-danger">Buscar Temas</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!-- Container (About Section) -->
+    <div id="about" class="container-fluid">
+      <div class="row">
+        <div class="col-sm-8">
+          <h2>Sobre Pumapita</h2>
+          <br />
+          <h4>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat.
+          </h4>
+          <br />
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat
+            non proident, sunt in culpa qui officia deserunt mollit anim id est
+            laborum consectetur adipiscing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+            ea commodo consequat.
+          </p>
+          <br />
+          <a href="signup.html"> <button class="btn btn-default btn-lg">Registrarse</button> </a>
+        </div>
+        <div class="col-sm-4">
+          <span class="glyphicon glyphicon-signal logo"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid bg-grey">
+      <div class="row">
+        <div class="col-sm-4">
+          <span class="glyphicon glyphicon-globe logo slideanim"></span>
+        </div>
+        <div class="col-sm-8">
+          <h2>Los temas que quieres en un sólo mapa</h2>
+          <br />
+          <h4>
+            <strong>MISIÓN:</strong> Nuestra misión lorem ipsum dolor sit amet,
+            consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+            exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat.
+          </h4>
+          <br />
+          <p>
+            <strong>VISIÓN:</strong> Nuestra visión lorem ipsum dolor sit amet,
+            consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+            exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+            nisi ut aliquip ex ea commodo consequat.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Container (Services Section) -->
+    <div id="services" class="container-fluid text-center">
+      <h2>OPOSSUM SOLUTIONS</h2>
+      <h4>Un grupo integrado por 4 alumnos de la facultad, con el objetivo de pasar ingeniería de software.</h4>
+      <br />
+      <div class="row slideanim">
+        <div class="col-sm-4">
+          <span class="glyphicon glyphicon-off logo-small"></span>
+          <h4>PUNTUALIDAD</h4>
+          <p>Desde el inicio de la clase habrá algun integrante de Opossum Solutions listo para atender.</p>
+        </div>
+        <div class="col-sm-4">
+          <span class="glyphicon glyphicon-heart logo-small"></span>
+          <h4>AMOR A NUESTRO TRABAJO</h4>
+          <p>Amamos nuestro trabajo, te lo prometemos.</p>
+        </div>
+        <div class="col-sm-4">
+          <span class="glyphicon glyphicon-lock logo-small"></span>
+          <h4>HACEMOS TU SOFTWARE</h4>
+          <p>Ten eso por seguro (o la maestra nos reprueba).aa</p>
+        </div>
+      </div>
+      <br /><br />
+      <div class="row slideanim">
+        <div class="col-sm-4">
+          <span class="glyphicon glyphicon-leaf logo-small"></span>
+          <h4>LIMPIO</h4>
+          <p>Opossum Solutions se traslada usando transporte público, bicicleta , y otros medios de bajo impacto ambiental.</p>
+        </div>
+        <div class="col-sm-4">
+          <span class="glyphicon glyphicon-certificate logo-small"></span>
+          <h4>ASEGURAMOS EL 10</h4>
+          <p>Nos importa mucho nuestra calificación. Haremos lo que sea por un 10.</p>
+        </div>
+        <div class="col-sm-4">
+          <span class="glyphicon glyphicon-wrench logo-small"></span>
+          <h4 style="color:#303030;">TRABAJO DURO</h4>
+          <p>El software no sale por arte de magia, es resultado de horas y horas sentado tras la computadora.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Container (Portfolio Section) 
+    <div id="portfolio" class="container-fluid text-center bg-grey">
+      <h2>Portfolio</h2>
+      <br />
+      <h4>What we have created</h4>
+      <div class="row text-center slideanim">
+        <div class="col-sm-4">
+          <div class="thumbnail">
+            <img src="paris.jpg" alt="Paris" width="400" height="300" />
+            <p><strong>Paris</strong></p>
+            <p>Yes, we built Paris</p>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="thumbnail">
+            <img src="newyork.jpg" alt="New York" width="400" height="300" />
+            <p><strong>New York</strong></p>
+            <p>We built New York</p>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="thumbnail">
+            <img
+              src="sanfran.jpg"
+              alt="San Francisco"
+              width="400"
+              height="300"
+            />
+            <p><strong>San Francisco</strong></p>
+            <p>Yes, San Fran is ours</p>
+          </div>
+        </div>
+      </div>
+      <br />
+
+      <h2>What our customers say</h2>
+      <div
+        id="myCarousel"
+        class="carousel slide text-center"
+        data-ride="carousel"
+      > -->
+        <!-- Indicators 
+        <ol class="carousel-indicators">
+          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#myCarousel" data-slide-to="1"></li>
+          <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+      -->
+
+        <!-- Wrapper for slides 
+        <div class="carousel-inner" role="listbox">
+          <div class="item active">
+            <h4>
+              "This company is the best. I am so happy with the result!"<br /><span
+                >Michael Roe, Vice President, Comment Box</span
+              >
+            </h4>
+          </div>
+          <div class="item">
+            <h4>
+              "One word... WOW!!"<br /><span>John Doe, Salesman, Rep Inc</span>
+            </h4>
+          </div>
+          <div class="item">
+            <h4>
+              "Could I... BE any more happy with this company?"<br /><span
+                >Chandler Bing, Actor, FriendsAlot</span
+              >
+            </h4>
+          </div>
+        </div> -->
+      </div>
+    </div>
+
+    <!-- Container (Pricing Section) -->
+    <div id="pricing" class="container-fluid">
+      <div class="text-center">
+        <h2>Registrarse</h2>
+        <h4>Actualmente tenemos los siguientes planes de registro</h4>
+      </div>
+        <div class="col-sm-4 col-xs-12">
+          <div class="panel panel-default text-center">
+            <div class="panel-heading">
+              <h1>Visitante</h1>
+            </div>
+            <div class="panel-body">
+              <p>Búsquedas <strong>ilimitadas</strong></p>
+              <p><strong>Sin </strong>poder comentar</p>
+              <p><strong>Sin </strong>poder calificar</p>
+              <p><strong>Sin </strong>poder crear nuevos temas</p>
+              <p><strong>Sin </strong>tener acceso tu propio perfil</p>
+            </div>
+            <div class="panel-footer">
+              <!-- <h3>$49</h3> 
+              <h4>per month</h4> -->
+              <p><strong>Ya eres visitante, ¡Hurra!</strong></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4 col-xs-12">
+          <div class="panel panel-default text-center">
+            <div class="panel-heading">
+              <h1>Comentarista</h1>
+            </div>
+            <div class="panel-body">
+              <p>Búsquedas <strong>ilimitadas</strong></p>
+              <p>Comentarios <strong>ilimitados</strong></p>
+              <p>Poder <strong>calificar</strong> comentarios y temas</p>
+              <p><strong>Crear</strong> nuevos temas </p>
+              <p><strong>Acceso a un perfil propio</strong></p>
+            </div>
+            <div class="panel-footer">
+                <div class="input-group-btn">
+                    <a href="signup.html">
+                      <button type="button" class="btn btn-danger">Registrarse</button>
+                    </a>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Container (Contact Section) -->
+    <div id="contact" class="container-fluid bg-grey">
+      <h2 class="text-center">CONTACTO</h2>
+      <div class="row">
+        <div class="col-sm-5">
+          <p>Escríbenos y te responderemos en menos de 24 horas.</p>
+          <p>
+            <span class="glyphicon glyphicon-map-marker"></span> Facultad de Ciencias, CU
+          </p>
+          <p><span class="glyphicon glyphicon-phone"></span> +52 55 12345678</p>
+          <p>
+            <span class="glyphicon glyphicon-envelope"></span>
+            noesuncorreoreal@opossumsolutions.com
+          </p>
+        </div>
+        <div class="col-sm-7 slideanim">
+          <div class="row">
+            <div class="col-sm-6 form-group">
+              <input
+                class="form-control"
+                id="name"
+                name="name"
+                placeholder="Nombre"
+                type="text"
+                required
+              />
+            </div>
+            <div class="col-sm-6 form-group">
+              <input
+                class="form-control"
+                id="email"
+                name="email"
+                placeholder="Correo"
+                type="email"
+                required
+              />
+            </div>
+          </div>
+          <textarea
+            class="form-control"
+            id="comments"
+            name="comments"
+            placeholder="Comentarios"
+            rows="5"
+          ></textarea
+          ><br />
+          <div class="row">
+            <div class="col-sm-12 form-group">
+              <button class="btn btn-default pull-right" type="submit">
+                Enviar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Image of location/map -->
+    <img
+      src="/w3images/map.jpg"
+      class="w3-image w3-greyscale-min"
+      style="width:100%"
+    />
+
+    <footer class="container-fluid text-center">
+      <a href="#myPage" title="To Top">
+        <span class="glyphicon glyphicon-chevron-up"></span>
+      </a>
+      <p>
+        Bootstrap Theme Made By
+        <a href="https://www.w3schools.com" title="Visit w3schools"
+          >www.w3schools.com</a
+        >
+      </p>
+    </footer>
+
+    <script>
+      $(document).ready(function() {
+        // Add smooth scrolling to all links in navbar + footer link
+        $(".navbar a, footer a[href='#myPage']").on("click", function(event) {
+          // Make sure this.hash has a value before overriding default behavior
+          if (this.hash !== "") {
+            // Prevent default anchor click behavior
+            event.preventDefault();
+
+            // Store hash
+            var hash = this.hash;
+
+            // Using jQuery's animate() method to add smooth page scroll
+            // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+            $("html, body").animate(
+              {
+                scrollTop: $(hash).offset().top
+              },
+              900,
+              function() {
+                // Add hash (#) to URL when done scrolling (default click behavior)
+                window.location.hash = hash;
+              }
+            );
+          } // End if
+        });
+
+        $(window).scroll(function() {
+          $(".slideanim").each(function() {
+            var pos = $(this).offset().top;
+
+            var winTop = $(window).scrollTop();
+            if (pos < winTop + 600) {
+              $(this).addClass("slide");
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
