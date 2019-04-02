@@ -8,44 +8,66 @@ package is.lab.mapita.controlador;
 import is.lab.mapita.modelo.Marcador;
 import is.lab.mapita.modelo.MarcadorDAO;
 import is.lab.mapita.modelo.Usuario;
-import java.util.Date;
+import is.lab.mapita.modelo.UsuarioDAO;
+import java.io.Serializable;
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
+import org.primefaces.event.map.MarkerDragEvent;
+import org.primefaces.event.map.PointSelectEvent;
+import org.primefaces.model.map.DefaultMapModel;
+import org.primefaces.model.map.LatLng;
+import org.primefaces.model.map.MapModel;
+import org.primefaces.model.map.Marker;
 
 /**
  *
- * @author opossum
+ * @author jonathan
  */
-public class AgregaMarcador {
-     private int idmarcador;
-     private Usuario usuario;
-     private String descripcion;
-     private double longitud;
-     private double latitud;
-
-    public int getIdmarcador() {
-        return idmarcador;
+@ManagedBean
+@ViewScoped
+public class AgregaMarcador implements Serializable {
+    private Marker marcador;
+    private MapModel simpleModel;
+    private double longitud;
+    private double latitud;
+    private String descripcion;
+    
+    @PostConstruct
+    public void init(){
+        simpleModel = new DefaultMapModel();
+        marcador = new Marker(new LatLng(23.382390, -102.291477),"Arrastrame");
+        marcador.setDraggable(true);
+//        marcador.setClickable(true);
+        simpleModel.addOverlay(marcador);
+        this.latitud = marcador.getLatlng().getLat();
+        this.longitud = marcador.getLatlng().getLng();
     }
 
-    public void setIdmarcador(int idmarcador) {
-        this.idmarcador = idmarcador;
+    public Marker getMarcador() {
+        return marcador;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
+    public MapModel getSimpleModel() {
+        return simpleModel;
+    }
+    
+    public void onMarkerDrag(MarkerDragEvent event){
+        marcador = event.getMarker();
+        this.latitud = marcador.getLatlng().getLat();
+        this.longitud = marcador.getLatlng().getLng();
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void onPointSelect(PointSelectEvent event) {
+        LatLng latlng = event.getLatLng();
+        marcador = simpleModel.getMarkers().get(0);
+        marcador.setLatlng(latlng);
+        this.latitud = latlng.getLat();
+        this.longitud = latlng.getLng();
+        
     }
-
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
-
+    
     public double getLongitud() {
         return longitud;
     }
@@ -62,12 +84,36 @@ public class AgregaMarcador {
         this.latitud = latitud;
     }
     
-    public void agregaMarcador() {
-        Marcador m = new Marcador();
+    public String agregaMarcador(){
+        MarcadorDAO mdb =new MarcadorDAO();
+        UsuarioDAO udb = new UsuarioDAO();
+        Marcador m = mdb.buscaMarcadorPorLatLng(latitud, longitud);
+        if(m!= null){
+            this.descripcion ="";
+            Mensajes.fatal("Ya existe un marcador con estas cordenadas \n" +"Lat: "+this.latitud +" Lng: "+this.longitud);
+            return "";
+        }
+        m = new Marcador();
+        ControladorSesion.UserLogged us= (ControladorSesion.UserLogged) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("user");
+        Usuario u = udb.buscaPorCorreo(us.getCorreo());
         m.setDescripcion(descripcion);
-        m.setLongitud(longitud);
         m.setLatitud(latitud);
-        MarcadorDAO mdb = new MarcadorDAO();
+        m.setLongitud(longitud);
+        m.setUsuario(u);
         mdb.save(m);
-    }    
+        this.descripcion ="";
+        Mensajes.info("Se guardo el marcador");
+        return "";
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+    
+    
+    
 }

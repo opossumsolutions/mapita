@@ -14,7 +14,7 @@ import org.hibernate.Transaction;
 
 /**
  *
- * @author opossum
+ * @author jonathan
  */
 public abstract class AbstractDAO<T> {
     
@@ -130,7 +130,8 @@ public abstract class AbstractDAO<T> {
         Transaction tx = null;
         try{
             tx = session.beginTransaction();
-            String hql = "From"+clazz;
+            String hql = "from "+clazz.getName();
+            System.out.println(hql);
             Query query = session.createQuery(hql);
             obj = (List<T>)query.list();
             tx.commit();

@@ -13,7 +13,7 @@ import org.hibernate.Transaction;
 
 /**
  *
- * @author opossum
+ * @author jonathan
  */
 public class UsuarioDAO extends AbstractDAO<Usuario> {
     
@@ -92,19 +92,17 @@ public class UsuarioDAO extends AbstractDAO<Usuario> {
         return usuarios;
     }
     
-    public Usuario buscaPorDatos(String correo, String contrasenia){
-//        if(nombre.equals(""))
-//            return null;
-        Usuario usuario =null;
+    public Usuario buscaPorCorreoContrasenia(String correo,String contrasenia){
+        Usuario u =null;
         Session session = this.sessionFactory.openSession();
-        Transaction tx = null;
+        Transaction tx =null;
         try{
             tx = session.beginTransaction();
-            String hql = "From Usuario  u where u.correo = :corr and u.contrasenia = :contra";
+            String hql = "from Usuario where correo = :correo and contrasenia = :contrasenia";
             Query query = session.createQuery(hql);
-            query.setParameter("corr", correo); 
-            query.setParameter("contra", contrasenia);
-            usuario = (Usuario)query.uniqueResult();
+            query.setParameter("correo", correo);
+            query.setParameter("contrasenia",contrasenia);
+            u = (Usuario)query.uniqueResult();
             tx.commit();
         }catch(HibernateException e){
             if(tx!=null){
@@ -114,7 +112,29 @@ public class UsuarioDAO extends AbstractDAO<Usuario> {
         }finally{
             session.close();
         }
-        return usuario;
+        return u;
+    }
+    
+    public Usuario buscaPorCorreo(String correo){
+        Usuario u =null;
+        Session session = this.sessionFactory.openSession();
+        Transaction tx =null;
+        try{
+            tx = session.beginTransaction();
+            String hql = "from Usuario where correo = :correo";
+            Query query = session.createQuery(hql);
+            query.setParameter("correo", correo);
+            u = (Usuario)query.uniqueResult();
+            tx.commit();
+        }catch(HibernateException e){
+            if(tx!=null){
+                tx.rollback();
+            }
+            e.printStackTrace();
+        }finally{
+            session.close();
+        }
+        return u;
     }
     
 }

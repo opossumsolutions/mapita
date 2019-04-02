@@ -4,6 +4,7 @@ CREATE TABLE usuario (
   correo  text NOT NULL,
   contrasenia text NOT NULL,
   fechanacimiento date,
+  rol text NOT NULL,
   PRIMARY KEY (idusuario)
 );
 
