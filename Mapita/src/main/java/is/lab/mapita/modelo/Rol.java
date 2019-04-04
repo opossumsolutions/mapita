@@ -10,6 +10,7 @@ package is.lab.mapita.modelo;
  * @author jonh
  */
 public enum Rol {
-    USER,
-    SUPERUSER
+    COMENTARISTA,
+    INFORMADOR,
+    ADMINISTRADOR
 }

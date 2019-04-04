@@ -72,10 +72,12 @@ public class AgregaUsuario {
         u.setCorreo(correo);
         u.setContrasenia(contrasenia);
         u.setFechanacimiento(fechanacimiento);
-        if(this.rol.equals("user")){
-            u.setRol(Rol.USER);
+        if(this.rol.equals("comentarista")){
+            u.setRol(Rol.COMENTARISTA);
+        }else if(this.rol.equals("informador")){
+            u.setRol(Rol.INFORMADOR);
         }else{
-            u.setRol(Rol.SUPERUSER);
+            u.setRol(Rol.ADMINISTRADOR);
         }
             
         UsuarioDAO udb = new UsuarioDAO();

@@ -79,8 +79,9 @@
                             <p:keyFilter regEx="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$"/>
                         </p:inputText> <br/>
                         <p:selectOneMenu id="rol" value="#{agregaUsuario.rol}" style="width: 100%">
-                            <f:selectItem itemLabel="User" itemValue="user" />
-                            <f:selectItem itemLabel="SuperUser" itemValue="superuser" />
+                            <f:selectItem itemLabel="Informador" itemValue="informador" />
+                            <f:selectItem itemLabel="Comentarista" itemValue="comentarista" />
+                            <f:selectItem itemLabel="Administrador" itemValue="administrador" />
                         </p:selectOneMenu>
                         <p:password class="texto" id="contrasenia" value="#{agregaUsuario.contrasenia}" placeholder="Contrasenia" match="contr" required="true" validatorMessage="No coinciden las contrasenias"/> <br/>
                         <p:password class="texto" id="contr" value="#{agregaUsuario.contrasenia}" placeholder="Confirma" required="true"/> <br/>
@@ -112,9 +113,10 @@
                         
                     </h:form>
                     </c:if>
-                    <p:link outcome="/user/perfiluser" value="Ver Perfil" rendered="#{not empty user and user.rol eq 'USER'}"/> <br/>
-                    <p:link outcome="/superuser/perfilsuperuser" value="Ver Perfil" rendered="#{not empty user and user.rol eq 'SUPERUSER'}"/><br/>
-                    <p:link outcome="/superuser/eliminaMarcadores" value="Elimina Marcadores" rendered="#{not empty user and user.rol eq 'SUPERUSER'}"/>
+                    <p:link outcome="/comentarista/perfilcomentarista" value="Ver Perfil" rendered="#{not empty user and user.rol eq 'COMENTARISTA'}"/> <br/>
+                    <p:link outcome="/informador/perfilinformador" value="Ver Perfil" rendered="#{not empty user and user.rol eq 'INFORMADOR'}"/> <br/>
+                    <p:link outcome="/administrador/perfiladministrador" value="Ver Perfil" rendered="#{not empty user and user.rol eq 'ADMINISTRADOR'}"/><br/>
+                    <p:link outcome="/administrador/eliminaMarcadores" value="Elimina Marcadores" rendered="#{not empty user and user.rol eq 'ADMINISTRADOR'}"/>
                 </aside>
             </div>
             <footer>

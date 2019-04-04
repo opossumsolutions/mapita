@@ -47,14 +47,18 @@ public class ControladorSesion implements Serializable{
         FacesContext context = FacesContext.getCurrentInstance();
         if(user !=null){
             UserLogged u = new UserLogged(user.getNombre(),user.getCorreo(),user.getRol());
-            if(user.getRol()==Rol.USER){
+            if(user.getRol()==Rol.COMENTARISTA){
                 
                 context.getExternalContext().getSessionMap().put("user", u);
-                return "/user/perfiluser?faces-redirect=true";
+                return "/comentarista/perfilcomentarista?faces-redirect=true";
+            }else if(user.getRol()==Rol.INFORMADOR){
+                
+                context.getExternalContext().getSessionMap().put("user", u);
+                return "/informador/perfilinformador?faces-redirect=true";
             }else{
                 
                 context.getExternalContext().getSessionMap().put("user", u);
-                return "/superuser/perfilsuperuser?faces-redirect=true";
+                return "/administrador/perfiladministrador?faces-redirect=true";
             }
         }
         Mensajes.error("NO hay usuarios con este correo"+this.correo);

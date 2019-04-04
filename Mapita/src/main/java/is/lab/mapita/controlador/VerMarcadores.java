@@ -35,10 +35,12 @@ public class VerMarcadores implements Serializable{
         simpleModel = new DefaultMapModel();
         MarcadorDAO mdb = new MarcadorDAO();
         List<Marcador> marcadores = mdb.findAll();
-        for(Marcador m :marcadores){
-            LatLng cord = new LatLng(m.getLatitud(),m.getLongitud());
-            Marker marcador = new Marker(cord,m.getUsuario().getNombre(),m.getDescripcion());
-            simpleModel.addOverlay(marcador);
+        if(marcadores!=null){
+            for(Marcador m :marcadores){
+                LatLng cord = new LatLng(m.getLatitud(),m.getLongitud());
+                Marker marcador = new Marker(cord,m.getUsuario().getNombre(),m.getDescripcion());
+                simpleModel.addOverlay(marcador);
+            }
         }
         
     }
