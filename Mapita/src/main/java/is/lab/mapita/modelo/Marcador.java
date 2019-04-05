@@ -1,6 +1,10 @@
 package is.lab.mapita.modelo;
 // Generated 08-feb-2019 13:44:51 by Hibernate Tools 4.3.1
 
+import java.util.HashSet;
+import java.util.Set;
+
+
 
 
 /**
@@ -10,11 +14,13 @@ public class Marcador  implements java.io.Serializable {
 
 
      private int idmarcador;
+     private Tema tema;
      private Usuario usuario;
      private String descripcion;
      private double longitud;
      private double latitud;
-
+     private Set coments = new HashSet(0);
+     
     public Marcador() {
     }
 
@@ -25,12 +31,14 @@ public class Marcador  implements java.io.Serializable {
         this.longitud = longitud;
         this.latitud = latitud;
     }
-    public Marcador(int idmarcador, Usuario usuario, String descripcion, double longitud, double latitud) {
+    public Marcador(int idmarcador, Usuario usuario, Tema tema, String descripcion, double longitud, double latitud, Set coments) {
        this.idmarcador = idmarcador;
-       this.usuario = usuario;
+       this.tema = tema;
+       this.usuario= usuario;
        this.descripcion = descripcion;
        this.longitud = longitud;
        this.latitud = latitud;
+       this.coments=coments;
     }
    
     public int getIdmarcador() {
@@ -40,12 +48,12 @@ public class Marcador  implements java.io.Serializable {
     public void setIdmarcador(int idmarcador) {
         this.idmarcador = idmarcador;
     }
-    public Usuario getUsuario() {
-        return this.usuario;
+    public Tema getTema() {
+        return this.tema;
     }
     
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setTema(Tema tema) {
+        this.tema = tema;
     }
     public String getDescripcion() {
         return this.descripcion;
@@ -68,7 +76,21 @@ public class Marcador  implements java.io.Serializable {
     public void setLatitud(double latitud) {
         this.latitud = latitud;
     }
+    public Usuario getUsuario() {
+        return usuario;
+    }
 
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+    
+    public Set getComents() {
+        return coments;
+    }
+
+    public void setComents(Set coments) {
+        this.coments = coments;
+    }
 
 
 
