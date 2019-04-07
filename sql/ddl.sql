@@ -26,7 +26,7 @@ CREATE TABLE users (
 
 CREATE TABLE topics (
     topic_id SERIAL NOT NULL,
-    topic_owner INTEGER NOT NULL REFERENCES users (user_id),
+    topic_owner INTEGER NOT NULL REFERENCES users (user_id) ON DELETE CASCADE,
     topic_name TEXT NOT NULL,
     topic_color CHAR(9) NOT NULL,
     PRIMARY KEY (topic_id, topic_owner)
