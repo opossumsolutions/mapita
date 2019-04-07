@@ -33,18 +33,13 @@ public class TopicsPK implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         TopicsPK topicsPK = (TopicsPK) o;
-
-        if (!Objects.equals(topicId, topicsPK.topicId)) return false;
-        return Objects.equals(topicOwner, topicsPK.topicOwner);
-
+        return Objects.equals(topicId, topicsPK.topicId) &&
+                Objects.equals(topicOwner, topicsPK.topicOwner);
     }
 
     @Override
     public int hashCode() {
-        int result = topicId != null ? topicId.hashCode() : 0;
-        result = 31 * result + (topicOwner != null ? topicOwner.hashCode() : 0);
-        return result;
+        return Objects.hash(topicId, topicOwner);
     }
 }

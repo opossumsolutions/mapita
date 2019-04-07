@@ -44,20 +44,14 @@ public class MarkersPK implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         MarkersPK markersPK = (MarkersPK) o;
-
-        if (!Objects.equals(markerId, markersPK.markerId)) return false;
-        if (!Objects.equals(topicId, markersPK.topicId)) return false;
-        return Objects.equals(topicOwner, markersPK.topicOwner);
-
+        return Objects.equals(markerId, markersPK.markerId) &&
+                Objects.equals(topicId, markersPK.topicId) &&
+                Objects.equals(topicOwner, markersPK.topicOwner);
     }
 
     @Override
     public int hashCode() {
-        int result = markerId != null ? markerId.hashCode() : 0;
-        result = 31 * result + (topicId != null ? topicId.hashCode() : 0);
-        result = 31 * result + (topicOwner != null ? topicOwner.hashCode() : 0);
-        return result;
+        return Objects.hash(markerId, topicId, topicOwner);
     }
 }

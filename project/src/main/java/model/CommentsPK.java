@@ -33,18 +33,13 @@ public class CommentsPK implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         CommentsPK that = (CommentsPK) o;
-
-        if (!Objects.equals(commentId, that.commentId)) return false;
-        return Objects.equals(commentOwner, that.commentOwner);
-
+        return Objects.equals(commentId, that.commentId) &&
+                Objects.equals(commentOwner, that.commentOwner);
     }
 
     @Override
     public int hashCode() {
-        int result = commentId != null ? commentId.hashCode() : 0;
-        result = 31 * result + (commentOwner != null ? commentOwner.hashCode() : 0);
-        return result;
+        return Objects.hash(commentId, commentOwner);
     }
 }

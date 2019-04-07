@@ -55,22 +55,15 @@ public class Topics {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         Topics topics = (Topics) o;
-
-        if (!Objects.equals(topicId, topics.topicId)) return false;
-        if (!Objects.equals(topicOwner, topics.topicOwner)) return false;
-        if (!Objects.equals(topicName, topics.topicName)) return false;
-        return Objects.equals(topicColor, topics.topicColor);
-
+        return Objects.equals(topicId, topics.topicId) &&
+                Objects.equals(topicOwner, topics.topicOwner) &&
+                Objects.equals(topicName, topics.topicName) &&
+                Objects.equals(topicColor, topics.topicColor);
     }
 
     @Override
     public int hashCode() {
-        int result = topicId != null ? topicId.hashCode() : 0;
-        result = 31 * result + (topicOwner != null ? topicOwner.hashCode() : 0);
-        result = 31 * result + (topicName != null ? topicName.hashCode() : 0);
-        result = 31 * result + (topicColor != null ? topicColor.hashCode() : 0);
-        return result;
+        return Objects.hash(topicId, topicOwner, topicName, topicColor);
     }
 }

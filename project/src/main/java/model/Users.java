@@ -68,24 +68,16 @@ public class Users {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         Users users = (Users) o;
-
-        if (!Objects.equals(userId, users.userId)) return false;
-        if (!Objects.equals(userName, users.userName)) return false;
-        if (!Objects.equals(userEmail, users.userEmail)) return false;
-        if (!Objects.equals(userPassword, users.userPassword)) return false;
-        return Objects.equals(userRole, users.userRole);
-
+        return Objects.equals(userId, users.userId) &&
+                Objects.equals(userName, users.userName) &&
+                Objects.equals(userEmail, users.userEmail) &&
+                Objects.equals(userPassword, users.userPassword) &&
+                Objects.equals(userRole, users.userRole);
     }
 
     @Override
     public int hashCode() {
-        int result = userId != null ? userId.hashCode() : 0;
-        result = 31 * result + (userName != null ? userName.hashCode() : 0);
-        result = 31 * result + (userEmail != null ? userEmail.hashCode() : 0);
-        result = 31 * result + (userPassword != null ? userPassword.hashCode() : 0);
-        result = 31 * result + (userRole != null ? userRole.hashCode() : 0);
-        return result;
+        return Objects.hash(userId, userName, userEmail, userPassword, userRole);
     }
 }

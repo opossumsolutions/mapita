@@ -44,20 +44,14 @@ public class Comments {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         Comments comments = (Comments) o;
-
-        if (!Objects.equals(commentId, comments.commentId)) return false;
-        if (!Objects.equals(commentOwner, comments.commentOwner)) return false;
-        return Objects.equals(commentText, comments.commentText);
-
+        return Objects.equals(commentId, comments.commentId) &&
+                Objects.equals(commentOwner, comments.commentOwner) &&
+                Objects.equals(commentText, comments.commentText);
     }
 
     @Override
     public int hashCode() {
-        int result = commentId != null ? commentId.hashCode() : 0;
-        result = 31 * result + (commentOwner != null ? commentOwner.hashCode() : 0);
-        result = 31 * result + (commentText != null ? commentText.hashCode() : 0);
-        return result;
+        return Objects.hash(commentId, commentOwner, commentText);
     }
 }

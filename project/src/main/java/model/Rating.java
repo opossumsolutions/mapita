@@ -67,25 +67,17 @@ public class Rating {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         Rating rating = (Rating) o;
-
-        if (!Objects.equals(ratingId, rating.ratingId)) return false;
-        if (!Objects.equals(ratingOwner, rating.ratingOwner)) return false;
-        if (!Objects.equals(commentId, rating.commentId)) return false;
-        if (!Objects.equals(commentOwner, rating.commentOwner)) return false;
-        return Objects.equals(ratingValue, rating.ratingValue);
-
+        return Objects.equals(ratingId, rating.ratingId) &&
+                Objects.equals(ratingOwner, rating.ratingOwner) &&
+                Objects.equals(commentId, rating.commentId) &&
+                Objects.equals(commentOwner, rating.commentOwner) &&
+                Objects.equals(ratingValue, rating.ratingValue);
     }
 
     @Override
     public int hashCode() {
-        int result = ratingId != null ? ratingId.hashCode() : 0;
-        result = 31 * result + (ratingOwner != null ? ratingOwner.hashCode() : 0);
-        result = 31 * result + (commentId != null ? commentId.hashCode() : 0);
-        result = 31 * result + (commentOwner != null ? commentOwner.hashCode() : 0);
-        result = 31 * result + (ratingValue != null ? ratingValue.hashCode() : 0);
-        return result;
+        return Objects.hash(ratingId, ratingOwner, commentId, commentOwner, ratingValue);
     }
 
     @ManyToOne

@@ -55,22 +55,15 @@ public class RatingPK implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         RatingPK ratingPK = (RatingPK) o;
-
-        if (!Objects.equals(ratingId, ratingPK.ratingId)) return false;
-        if (!Objects.equals(ratingOwner, ratingPK.ratingOwner)) return false;
-        if (!Objects.equals(commentId, ratingPK.commentId)) return false;
-        return Objects.equals(commentOwner, ratingPK.commentOwner);
-
+        return Objects.equals(ratingId, ratingPK.ratingId) &&
+                Objects.equals(ratingOwner, ratingPK.ratingOwner) &&
+                Objects.equals(commentId, ratingPK.commentId) &&
+                Objects.equals(commentOwner, ratingPK.commentOwner);
     }
 
     @Override
     public int hashCode() {
-        int result = ratingId != null ? ratingId.hashCode() : 0;
-        result = 31 * result + (ratingOwner != null ? ratingOwner.hashCode() : 0);
-        result = 31 * result + (commentId != null ? commentId.hashCode() : 0);
-        result = 31 * result + (commentOwner != null ? commentOwner.hashCode() : 0);
-        return result;
+        return Objects.hash(ratingId, ratingOwner, commentId, commentOwner);
     }
 }
