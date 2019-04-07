@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="model.Rating" table="rating" schema="public" catalog="mapita">
+        <composite-id mapped="true" class="model.RatingPK">
+            <key-property name="ratingId">
+                <column name="rating_id" sql-type="integer"/>
+            </key-property>
+            <key-property name="ratingOwner">
+                <column name="rating_owner" sql-type="integer"/>
+            </key-property>
+            <key-property name="commentId">
+                <column name="comment_id" sql-type="integer"/>
+            </key-property>
+            <key-property name="commentOwner">
+                <column name="comment_owner" sql-type="integer"/>
+            </key-property>
+        </composite-id>
+        <property name="ratingValue">
+            <column name="rating_value" sql-type="boolean"/>
+        </property>
+        <many-to-one name="comments" class="model.Comments">
+            <column name="comment_id"/>
+            <column name="comment_owner"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

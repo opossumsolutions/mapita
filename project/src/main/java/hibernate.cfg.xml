@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="connection.url">jdbc:postgresql://localhost:5432/mapita</property>
+        <property name="connection.driver_class">org.postgresql.Driver</property>
+        <property name="hibernate.connection.username">postgres</property>
+        <property name="hibernate.connection.password">docker</property>
+        <mapping class="model.Comments"/>
+        <mapping resource="model/Comments.hbm.xml"/>
+        <mapping class="model.Markers"/>
+        <mapping resource="model/Markers.hbm.xml"/>
+        <mapping class="model.Rating"/>
+        <mapping resource="model/Rating.hbm.xml"/>
+        <mapping resource="model/Topics.hbm.xml"/>
+        <mapping class="model.Topics"/>
+        <mapping resource="model/Users.hbm.xml"/>
+        <mapping class="model.Users"/>
+    </session-factory>
+</hibernate-configuration>

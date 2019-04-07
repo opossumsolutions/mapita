@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="model.Topics" table="topics" schema="public" catalog="mapita">
+        <composite-id mapped="true" class="model.TopicsPK">
+            <key-property name="topicId">
+                <column name="topic_id" sql-type="integer"/>
+            </key-property>
+            <key-property name="topicOwner">
+                <column name="topic_owner" sql-type="integer"/>
+            </key-property>
+        </composite-id>
+        <property name="topicName">
+            <column name="topic_name" sql-type="text"/>
+        </property>
+        <property name="topicColor">
+            <column name="topic_color" sql-type="char(9)" length="9"/>
+        </property>
+    </class>
+</hibernate-mapping>

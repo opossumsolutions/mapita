@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="model.Comments" table="comments" schema="public" catalog="mapita">
+        <composite-id mapped="true" class="model.CommentsPK">
+            <key-property name="commentId">
+                <column name="comment_id" sql-type="integer"/>
+            </key-property>
+            <key-property name="commentOwner">
+                <column name="comment_owner" sql-type="integer"/>
+            </key-property>
+        </composite-id>
+        <property name="commentText">
+            <column name="comment_text" sql-type="text"/>
+        </property>
+    </class>
+</hibernate-mapping>
