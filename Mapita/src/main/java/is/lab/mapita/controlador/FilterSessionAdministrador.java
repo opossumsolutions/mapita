@@ -24,7 +24,6 @@ import javax.servlet.http.HttpSession;
  */
 @WebFilter("/administrador/*")
 public class FilterSessionAdministrador implements Filter {
-
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -52,6 +51,5 @@ public class FilterSessionAdministrador implements Filter {
     public void destroy() {
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+   
 }
-

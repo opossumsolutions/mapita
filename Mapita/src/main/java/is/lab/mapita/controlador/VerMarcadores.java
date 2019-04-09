@@ -39,10 +39,11 @@ public class VerMarcadores implements Serializable{
             for(Marcador m :marcadores){
                 LatLng cord = new LatLng(m.getLatitud(),m.getLongitud());
                 Marker marcador = new Marker(cord,m.getUsuario().getNombre(),m.getDescripcion());
+                marcador.setIcon(m.getIcon());
+                //System.out.println(m.getIcon());
                 simpleModel.addOverlay(marcador);
             }
         }
-        
     }
 
     public MapModel getSimpleModel() {

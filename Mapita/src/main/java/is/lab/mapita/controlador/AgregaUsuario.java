@@ -76,7 +76,7 @@ public class AgregaUsuario {
             u.setRol(Rol.COMENTARISTA);
         }else if(this.rol.equals("informador")){
             u.setRol(Rol.INFORMADOR);
-        }else{
+        }else {
             u.setRol(Rol.ADMINISTRADOR);
         }
             

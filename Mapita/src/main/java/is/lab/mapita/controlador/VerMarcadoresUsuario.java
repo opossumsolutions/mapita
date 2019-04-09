@@ -38,14 +38,15 @@ public class VerMarcadoresUsuario implements Serializable{
         MarcadorDAO mdb = new MarcadorDAO();
         ControladorSesion.UserLogged ul = (ControladorSesion.UserLogged) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("user");
         List<Marcador> marcadores = mdb.ObtenMarcadoresPorUsuario(ul.getCorreo());
-        
-        for(Marcador m :marcadores){
-            LatLng cord = new LatLng(m.getLatitud(),m.getLongitud());
-            Marker marcador = new Marker(cord,"Mi Marcador",m.getDescripcion());
-            simpleModel.addOverlay(marcador);
+        if(marcadores!=null){
+            for(Marcador m :marcadores){
+                LatLng cord = new LatLng(m.getLatitud(),m.getLongitud());
+                Marker marcador = new Marker(cord,"Mi Marcador",m.getDescripcion());
+                simpleModel.addOverlay(marcador);
+            }
         }
-        
     }
+
 
     public MapModel getSimpleModel() {
         return simpleModel;

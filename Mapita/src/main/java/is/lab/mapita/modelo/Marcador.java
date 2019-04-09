@@ -1,10 +1,6 @@
 package is.lab.mapita.modelo;
 // Generated 08-feb-2019 13:44:51 by Hibernate Tools 4.3.1
 
-import java.util.HashSet;
-import java.util.Set;
-
-
 
 
 /**
@@ -14,33 +10,40 @@ public class Marcador  implements java.io.Serializable {
 
 
      private int idmarcador;
-     private Tema tema;
      private Usuario usuario;
      private String descripcion;
      private double longitud;
      private double latitud;
-     private Set coments = new HashSet(0);
-     
+     private String icon;
+
     public Marcador() {
     }
 
-	
-    public Marcador(int idmarcador, String descripcion, double longitud, double latitud) {
+    public Marcador(int idmarcador, String descripcion, double longitud, double latitud, String icon) {
         this.idmarcador = idmarcador;
         this.descripcion = descripcion;
         this.longitud = longitud;
         this.latitud = latitud;
+        this.icon = icon;
     }
-    public Marcador(int idmarcador, Usuario usuario, Tema tema, String descripcion, double longitud, double latitud, Set coments) {
-       this.idmarcador = idmarcador;
-       this.tema = tema;
-       this.usuario= usuario;
-       this.descripcion = descripcion;
-       this.longitud = longitud;
-       this.latitud = latitud;
-       this.coments=coments;
+
+    public Marcador(int idmarcador, Usuario usuario, String descripcion, double longitud, double latitud, String icon) {
+        this.idmarcador = idmarcador;
+        this.usuario = usuario;
+        this.descripcion = descripcion;
+        this.longitud = longitud;
+        this.latitud = latitud;
+        this.icon = icon;
     }
-   
+
+    public String getIcon() {
+        return icon;
+    }
+
+    public void setIcon(String icon) {
+        this.icon = icon;
+    }
+
     public int getIdmarcador() {
         return this.idmarcador;
     }
@@ -48,12 +51,12 @@ public class Marcador  implements java.io.Serializable {
     public void setIdmarcador(int idmarcador) {
         this.idmarcador = idmarcador;
     }
-    public Tema getTema() {
-        return this.tema;
+    public Usuario getUsuario() {
+        return this.usuario;
     }
     
-    public void setTema(Tema tema) {
-        this.tema = tema;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
     public String getDescripcion() {
         return this.descripcion;
@@ -76,21 +79,7 @@ public class Marcador  implements java.io.Serializable {
     public void setLatitud(double latitud) {
         this.latitud = latitud;
     }
-    public Usuario getUsuario() {
-        return usuario;
-    }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
-    }
-    
-    public Set getComents() {
-        return coments;
-    }
-
-    public void setComents(Set coments) {
-        this.coments = coments;
-    }
 
 
 

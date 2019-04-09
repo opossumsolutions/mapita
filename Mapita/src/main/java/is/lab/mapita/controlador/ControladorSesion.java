@@ -50,15 +50,15 @@ public class ControladorSesion implements Serializable{
             if(user.getRol()==Rol.COMENTARISTA){
                 
                 context.getExternalContext().getSessionMap().put("user", u);
-                return "/comentarista/perfilcomentarista?faces-redirect=true";
+                return "/comentarista/perfil?faces-redirect=true";
             }else if(user.getRol()==Rol.INFORMADOR){
                 
                 context.getExternalContext().getSessionMap().put("user", u);
-                return "/informador/perfilinformador?faces-redirect=true";
+                return "/informador/perfil?faces-redirect=true";
             }else{
                 
                 context.getExternalContext().getSessionMap().put("user", u);
-                return "/administrador/perfiladministrador?faces-redirect=true";
+                return "/administrador/perfil?faces-redirect=true";
             }
         }
         Mensajes.error("NO hay usuarios con este correo"+this.correo);

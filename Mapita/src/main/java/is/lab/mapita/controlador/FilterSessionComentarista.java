@@ -5,6 +5,7 @@
  */
 package is.lab.mapita.controlador;
 
+
 import is.lab.mapita.modelo.Rol;
 import java.io.IOException;
 import javax.servlet.Filter;
@@ -24,7 +25,6 @@ import javax.servlet.http.HttpSession;
  */
 @WebFilter("/comentarista/*")
 public class FilterSessionComentarista implements Filter{
-    
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
 //        throw new UnsupportedOperationException("Not supported yet.");
@@ -52,4 +52,5 @@ public class FilterSessionComentarista implements Filter{
     public void destroy() {
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    
 }
