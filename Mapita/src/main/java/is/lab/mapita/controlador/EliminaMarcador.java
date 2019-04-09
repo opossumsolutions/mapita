@@ -54,7 +54,7 @@ public class EliminaMarcador {
         MarcadorDAO mdb = new MarcadorDAO();
         Marcador m = mdb.buscaMarcadorPorLatLng(lat, lng);
         mdb.delete(m);
-        return "/superuser/eliminaMarcadores?faces-redirect=true";
+        return "/administrador/eliminaMarcadores?faces-redirect=true";
     }
     
     public String eliminaMarcadorv2(){
@@ -66,7 +66,7 @@ public class EliminaMarcador {
         }
         mdb.delete(m);
         
-        return "/superuser/eliminaMarcadores?faces-redirect=true";
+        return "/administrador/eliminaMarcadores?faces-redirect=true";
     }
     
 }
