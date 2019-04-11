@@ -1,7 +1,7 @@
 /home/juan/Documentos/mapita/Mapita/src/main/java/is/lab/mapita/controlador/VerMarcadores.java
 /home/juan/Documentos/mapita/Mapita/src/main/java/is/lab/mapita/modelo/MarcadorDAO.java
-/home/juan/Documentos/mapita/Mapita/src/main/java/is/lab/mapita/controlador/AgregarTema.java
 /home/juan/Documentos/mapita/Mapita/src/main/java/is/lab/mapita/controlador/VerMarcadoresUsuario.java
+/home/juan/Documentos/mapita/Mapita/src/main/java/is/lab/mapita/controlador/AgregaTema.java
 /home/juan/Documentos/mapita/Mapita/src/main/java/is/lab/mapita/modelo/AbstractDAO.java
 /home/juan/Documentos/mapita/Mapita/src/main/java/is/lab/mapita/controlador/EliminaMarcador.java
 /home/juan/Documentos/mapita/Mapita/src/main/java/is/lab/mapita/controlador/Mail.java
