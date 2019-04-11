@@ -51,5 +51,6 @@ Contributor(s):
     <property name="hibernate.current_session_context_class">thread</property>
     <mapping resource="is/lab/mapita/modelo/Marcador.hbm.xml"/>
     <mapping resource="is/lab/mapita/modelo/Usuario.hbm.xml"/>
+    <mapping resource="is/lab/mapita/modelo/Tema.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

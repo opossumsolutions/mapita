@@ -1,3 +1,5 @@
+DROP TABLE IF EXISTS tema;
+
 DROP TABLE IF EXISTS marcador;
 
 DROP TABLE IF EXISTS usuario;
@@ -18,5 +20,13 @@ CREATE TABLE marcador (
   latitud double precision NOT NULL,
   icon text NOT NULL,
   PRIMARY KEY (idmarcador),
+  usuarioid integer REFERENCES usuario(idusuario)
+);
+
+CREATE TABLE tema (
+  idtema serial NOT NULL,
+  nombre text NOT NULL,
+  color text NOT NULL,
+  PRIMARY KEY (idtema),
   usuarioid integer REFERENCES usuario(idusuario)
 );

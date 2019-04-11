@@ -1,5 +1,6 @@
 /home/juan/Documentos/mapita/Mapita/src/main/java/is/lab/mapita/controlador/VerMarcadores.java
 /home/juan/Documentos/mapita/Mapita/src/main/java/is/lab/mapita/modelo/MarcadorDAO.java
+/home/juan/Documentos/mapita/Mapita/src/main/java/is/lab/mapita/controlador/AgregarTema.java
 /home/juan/Documentos/mapita/Mapita/src/main/java/is/lab/mapita/controlador/VerMarcadoresUsuario.java
 /home/juan/Documentos/mapita/Mapita/src/main/java/is/lab/mapita/modelo/AbstractDAO.java
 /home/juan/Documentos/mapita/Mapita/src/main/java/is/lab/mapita/controlador/EliminaMarcador.java
@@ -11,9 +12,11 @@
 /home/juan/Documentos/mapita/Mapita/src/main/java/is/lab/mapita/controlador/Mensajes.java
 /home/juan/Documentos/mapita/Mapita/src/main/java/is/lab/mapita/controlador/FilterSessionInformador.java
 /home/juan/Documentos/mapita/Mapita/src/main/java/is/lab/mapita/controlador/AgregaUsuario.java
+/home/juan/Documentos/mapita/Mapita/src/main/java/is/lab/mapita/modelo/Tema.java
 /home/juan/Documentos/mapita/Mapita/src/main/java/is/lab/mapita/controlador/FilterSessionComentarista.java
 /home/juan/Documentos/mapita/Mapita/src/main/java/is/lab/mapita/controlador/ControladorSesion.java
 /home/juan/Documentos/mapita/Mapita/src/main/java/is/lab/mapita/modelo/Marcador.java
 /home/juan/Documentos/mapita/Mapita/src/main/java/is/lab/mapita/controlador/AgregaMarcador.java
 /home/juan/Documentos/mapita/Mapita/src/main/java/is/lab/mapita/controlador/BuscaPorNombre.java
 /home/juan/Documentos/mapita/Mapita/src/main/java/is/lab/mapita/controlador/FilterSessionAdministrador.java
+/home/juan/Documentos/mapita/Mapita/src/main/java/is/lab/mapita/modelo/TemaDAO.java
