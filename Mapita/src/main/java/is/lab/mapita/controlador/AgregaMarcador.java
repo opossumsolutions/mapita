@@ -14,7 +14,6 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
-import javax.servlet.ServletContext;
 import org.primefaces.event.map.MarkerDragEvent;
 import org.primefaces.event.map.PointSelectEvent;
 import org.primefaces.model.map.DefaultMapModel;
@@ -24,14 +23,12 @@ import org.primefaces.model.map.Marker;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.Serializable;
 import javax.servlet.ServletContext;
 /**
  *
- * @author jonathan
+ * @author juan
  */
 @ManagedBean
 @ViewScoped

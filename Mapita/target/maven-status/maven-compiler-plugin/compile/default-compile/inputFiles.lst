@@ -12,6 +12,7 @@
 /home/juan/Documentos/mapita/Mapita/src/main/java/is/lab/mapita/controlador/Mensajes.java
 /home/juan/Documentos/mapita/Mapita/src/main/java/is/lab/mapita/controlador/FilterSessionInformador.java
 /home/juan/Documentos/mapita/Mapita/src/main/java/is/lab/mapita/controlador/AgregaUsuario.java
+/home/juan/Documentos/mapita/Mapita/src/main/java/is/lab/mapita/controlador/EditaUsuario.java
 /home/juan/Documentos/mapita/Mapita/src/main/java/is/lab/mapita/modelo/Tema.java
 /home/juan/Documentos/mapita/Mapita/src/main/java/is/lab/mapita/controlador/FilterSessionComentarista.java
 /home/juan/Documentos/mapita/Mapita/src/main/java/is/lab/mapita/controlador/ControladorSesion.java

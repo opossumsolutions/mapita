@@ -33,20 +33,6 @@ and open the template in the editor.
             </main>
             <div id="main">
                 <section>
-                    <h3>Agrega un marcador</h3> 
-                    <h:form id="form" class="formulario">
-                        <p:messages id="messages" showDetail="true" closable="true">
-                            <p:autoUpdate />
-                        </p:messages>
-                        <p:inputNumber class="texto" decimalPlaces="6" id="longitud" value="#{agregaMarcador.longitud}" disabled="true"/>
-                        <p:inputNumber  class="texto" id="latitud" decimalPlaces="6" value="#{agregaMarcador.latitud}" disabled="true"/>
-                        <p:inputTextarea class="texto" id="descripcion" placeholder="Descripcion" value="${agregaMarcador.descripcion}"  required="true"/>
-                        <p:colorPicker value="#{agregaMarcador.color}" mode="inline"/>
-                        <p:commandButton  id="agregaMarcador" value="Agrega Marcador" action="#{agregaMarcador.agregaMarcador()}"/>
-                        
-                    </h:form>
-                </section>
-                <section>
                     <h3>Agrega un tema</h3> 
                     <h:form  id="formtema" class="formulario">
                         <p:messages id="messages" showDetail="true" closable="true">
@@ -61,8 +47,21 @@ and open the template in the editor.
                     <h1>Hola #{user.nombre} </h1><br/>
                     <h2>Tu rol es #{user.rol}</h2>
                     <h2>Tu correo es #{user.correo}</h2>
-                    
                 </aside>
+                <section>
+                    <h3>Agrega un marcador</h3> 
+                    <h:form id="form" class="formulario">
+                        <p:messages id="messages" showDetail="true" closable="true">
+                            <p:autoUpdate />
+                        </p:messages>
+                        <p:inputNumber class="texto" decimalPlaces="6" id="longitud" value="#{agregaMarcador.longitud}" disabled="true"/>
+                        <p:inputNumber  class="texto" id="latitud" decimalPlaces="6" value="#{agregaMarcador.latitud}" disabled="true"/>
+                        <p:inputTextarea class="texto" id="descripcion" placeholder="Descripcion" value="${agregaMarcador.descripcion}"  required="true"/>
+                        <p:colorPicker value="#{agregaMarcador.color}" mode="inline"/>
+                        <p:commandButton  id="agregaMarcador" value="Agrega Marcador" action="#{agregaMarcador.agregaMarcador()}"/>
+                        
+                    </h:form>
+                </section>
             </div>
             
             <footer>
