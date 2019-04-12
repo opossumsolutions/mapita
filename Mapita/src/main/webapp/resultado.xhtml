@@ -16,11 +16,27 @@ and open the template in the editor.
             <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         </h:head>
         <h:body>
-            <p:dataScroller value="#{buscaPorNombre.resultado}" var="resultado">
-                #{resultado.nombre} <br/>
-            
-            </p:dataScroller>
-                            
+            <table class="order-table">
+    		<tr>
+    			<th class="order-table-header">Nombre</th>
+    			<th class="order-table-header">Correo</th>
+    		</tr>
+    		<tbody>
+	    		<ui:repeat value="#{buscaPorNombre.resultado}" var="resultado">
+	    			<h:panelGroup>
+	   			  <tr>
+		    			<td class="order-table-even-row">#{resultado.nombre}</td>
+                                        <td class="order-table-even-row">#{resultado.correo}</td>
+                                        <td>
+                                            <h:form>
+                                                <p:commandButton class="texto" action="#{editaUsuario.eliminaUsuario(resultado.correo)}" value="Elimina Usuario" ajax="false"/>
+                                            </h:form>
+                                        </td>
+		    		  </tr>
+	    			</h:panelGroup>
+	    		</ui:repeat>
+    		</tbody>
+    	</table>             
         </h:body>
     </f:view>
 </html>

@@ -63,4 +63,10 @@ public class EditaUsuario {
         udb.delete(u);
         return "/index?faces-redirect=true";
     }
+    
+    public void eliminaUsuario(String correo){
+        UsuarioDAO udb = new UsuarioDAO();
+        Usuario u = udb.buscaPorCorreo(correo);
+        udb.delete(u);
+    }
 }

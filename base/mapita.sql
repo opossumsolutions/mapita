@@ -20,7 +20,7 @@ CREATE TABLE marcador (
   latitud double precision NOT NULL,
   icon text NOT NULL,
   PRIMARY KEY (idmarcador),
-  usuarioid integer REFERENCES usuario(idusuario)
+  usuarioid integer REFERENCES usuario(idusuario) ON DELETE CASCADE
 );
 
 CREATE TABLE tema (
@@ -28,5 +28,5 @@ CREATE TABLE tema (
   nombre text NOT NULL,
   color text NOT NULL,
   PRIMARY KEY (idtema),
-  usuarioid integer REFERENCES usuario(idusuario)
+  usuarioid integer REFERENCES usuario(idusuario) ON DELETE CASCADE
 );
